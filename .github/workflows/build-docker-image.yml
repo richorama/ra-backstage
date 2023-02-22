@@ -24,7 +24,7 @@ jobs:
       run: |
           yarn install --frozen-lockfile
           yarn tsc
-          yarn build
+          yarn build:all
       
     - name: 'Build and push image'
       uses: azure/docker-login@v1
