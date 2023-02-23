@@ -41,7 +41,7 @@ jobs:
       with:
         push: true
         tags: rabackstagereg.azurecr.io/backstage:${{ github.sha }}
-        file: --file packages/backend/Dockerfile 
+        file: packages/backend/Dockerfile 
   deploy:
     runs-on: ubuntu-latest
     needs: build
