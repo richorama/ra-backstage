@@ -32,13 +32,13 @@ jobs:
     - name: 'Build and push image'
       uses: azure/docker-login@v1
       with:
-        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}  
     
     - run: |
         docker image build . --file packages/backend/Dockerfile --tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/backstage:${{ github.sha }}
-        docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/backstage:${{ github.sha }}
+        docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/backstage:${{ github.sha }}
  
     - name: 'Az CLI login'
       uses: azure/login@v1
