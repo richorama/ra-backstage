@@ -27,7 +27,7 @@ jobs:
       run: |
           yarn install --frozen-lockfile
           yarn tsc
-          yarn build:all
+          yarn build:backend
       
     - name: Log in to container registry
       uses: docker/login-action@v1
